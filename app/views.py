@@ -4,6 +4,8 @@ from rest_framework import viewsets
 from rest_framework.views import APIView
 from rest_framework.response import Response 
 
+from . import models
+
 from . import serializers
 from rest_framework import status
 # Create your views here.
@@ -110,3 +112,8 @@ class HelloViewSet(viewsets.ViewSet):
 
 
 
+class UserProfileViewSet(viewsets.ModelViewSet):
+    """Handles Creating and Updating Profiles"""
+
+    serializer_class = serializers.UserProfileSerializer
+    queryset = models.UserProfile.objects.all()
